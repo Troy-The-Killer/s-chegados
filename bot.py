@@ -49,7 +49,7 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
-        
+
     ############################################################################################################
 
     if message.content.lower().startswith('=py'):
@@ -63,7 +63,7 @@ async def on_message(message):
 
     if message.content.lower().startswith('=help'):
         embed1 = discord.Embed(
-            title="HELP →",
+            title="HELP:",
             color=0x4d0083,
             description='\n:small_blue_diamond: `=help`\t\tVocê está aqui agora!\n:small_blue_diamond: `=avatar`\tVer avatar do membro!\n:small_blue_diamond: `=avisos`\tAvisos de eventos ou algo do tipo!\n:small_blue_diamond: `=py`\t\t\t Imprimir códigos em python\n'
         )
@@ -145,4 +145,90 @@ async def on_message(message):
 
     ############################################################################################################
 
+    if message.content.lower().startswith('=registro'):
+        embed = discord.Embed(
+            title="Faça seu Registro:",
+            color=rosa,
+            description="👩  →  Mulher\n"
+                        "👨  →  Homem\n"
+                        "💻  →  Computador\n"
+                        "📱  →  Celular\n"
+                        "🔼  →  +18\n"
+                        "🔽  →  -18",
+        )
+
+        botmsg = await client.send_message(message.channel, embed=embed)
+
+        await client.add_reaction(botmsg, "👩")
+        await client.add_reaction(botmsg, "👨")
+        await client.add_reaction(botmsg, "💻")
+        await client.add_reaction(botmsg, "📱")
+        await client.add_reaction(botmsg, "🔼")
+        await client.add_reaction(botmsg, "🔽")
+
+        global msg_id
+        msg_id = botmsg.id
+
+        global msg_user
+        msg_user = message.author
+
+@client.event
+async def on_reaction_add(reaction, user):
+
+    msg = reaction.message
+
+    if reaction.emoji == "👩" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Mulher", msg.server.roles)
+        await client.add_roles(user, role)
+
+    if reaction.emoji == "👨" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Homem", msg.server.roles)
+        await client.add_roles(user, role)
+
+    if reaction.emoji == "💻" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Computador", msg.server.roles)
+        await client.add_roles(user, role)
+
+    if reaction.emoji == "📱" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Celular", msg.server.roles)
+        await client.add_roles(user, role)
+
+    if reaction.emoji == "🔼" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "+18", msg.server.roles)
+        await client.add_roles(user, role)
+
+    if reaction.emoji == "🔽" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "-18", msg.server.roles)
+        await client.add_roles(user, role)
+
+@client.event
+async def on_reaction_remove(reaction, user):
+
+    msg = reaction.message
+
+    if reaction.emoji == "👩" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Mulher", msg.server.roles)
+        await client.remove_roles(user, role)
+
+    if reaction.emoji == "👨" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Homem", msg.server.roles)
+        await client.remove_roles(user, role)
+
+    if reaction.emoji == "💻" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Computador", msg.server.roles)
+        await client.remove_roles(user, role)
+
+    if reaction.emoji == "📱" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "Celular", msg.server.roles)
+        await client.remove_roles(user, role)
+
+    if reaction.emoji == "🔼" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "+18", msg.server.roles)
+        await client.remove_roles(user, role)
+
+    if reaction.emoji == "🔽" and msg_id == msg_id:
+        role = discord.utils.find(lambda r: r.name == "-18", msg.server.roles)
+        await client.remove_roles(user, role)
+
+        
 client.run('NDU5NDE1NjgzOTkwODE0NzQw.Dg2Pzw.LEzta0HWqBmHGvXohe1IPvxbICc')
