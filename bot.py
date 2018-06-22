@@ -49,22 +49,6 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
-    
-    if message.content.lower().startswith('=limpar'):
-        number = message.content.split(' ')[1]
-        if not message.author.id in adminslist:
-            return await client.send_message(message.channel, "Desculpe {} você não é admin então não posso apagar as mesagens ;(".format(message.author.mention))
-        elif int(number) > 100:
-            return await client.send_message(message.channel, "O limite é 100. :(")
-        msgs = []
-        number = int(number)
-        async for x in client.logs_from(message.channel, limit=number):
-            msgs.append(x)
-        await client.delete_messages(msgs)
-        embed = discord.Embed(title='🗑️ Lixeira', description='Eu acabei de apagar **{}** mensagens.'.format(number), color=0x727272)
-        dele = await client.send_message(message.channel, embed=embed)
-        await asyncio.sleep(8)
-        await client.delete_message(dele)
         
     ############################################################################################################
 
@@ -79,7 +63,7 @@ async def on_message(message):
 
     if message.content.lower().startswith('=help'):
         embed1 = discord.Embed(
-            title="**__HELP:__**",
+            title="HELP →",
             color=0x4d0083,
             description='\n:small_blue_diamond: `=help`\t\tVocê está aqui agora!\n:small_blue_diamond: `=avatar`\tVer avatar do membro!\n:small_blue_diamond: `=avisos`\tAvisos de eventos ou algo do tipo!\n:small_blue_diamond: `=py`\t\t\t Imprimir códigos em python\n'
         )
