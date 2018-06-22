@@ -49,7 +49,23 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
-
+    
+    if message.content.lower().startswith('=limpar'):
+        number = message.content.split(' ')[1]
+        if not message.author.id in adminslist:
+            return await client.send_message(message.channel, "Desculpe {} você não é admin então não posso apagar as mesagens ;(".format(message.author.mention))
+        elif int(number) > 100:
+            return await client.send_message(message.channel, "O limite é 100. :(")
+        msgs = []
+        number = int(number)
+        async for x in client.logs_from(message.channel, limit=number):
+            msgs.append(x)
+        await client.delete_messages(msgs)
+        embed = discord.Embed(title='🗑️ Lixeira', description='Eu acabei de apagar **{}** mensagens.'.format(number), color=0x727272)
+        dele = await client.send_message(message.channel, embed=embed)
+        await asyncio.sleep(8)
+        await client.delete_message(dele)
+        
     ############################################################################################################
 
     if message.content.lower().startswith('=py'):
