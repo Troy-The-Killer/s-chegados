@@ -148,7 +148,7 @@ async def on_message(message):
     if message.content.lower().startswith('=registro'):
         embed = discord.Embed(
             title="Faça seu Registro:",
-            color=rosa,
+            color=0xE91A21,
             description="👩  →  Mulher\n"
                         "👨  →  Homem\n"
                         "💻  →  Computador\n"
