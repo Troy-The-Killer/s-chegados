@@ -149,11 +149,11 @@ async def on_message(message):
         embed = discord.Embed(
             title="Faça seu Registro:",
             color=0xE91A21,
-            description="👩  →  Mulher\n"
-                        "👨  →  Homem\n"
-                        "💻  →  Computador\n"
-                        "📱  →  Celular\n"
-                        "🔼  →  +18\n"
+            description="👩  →  Mulher\n\n"
+                        "👨  →  Homem\n\n"
+                        "💻  →  Computador\n\n"
+                        "📱  →  Celular\n\n"
+                        "🔼  →  +18\n\n"
                         "🔽  →  -18",
         )
 
