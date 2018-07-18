@@ -51,45 +51,6 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
-    if message.content.lower().startswith('=amor'):
-        global medidor
-        
-        Numeros = random.randrange(0, 99)
-        Membro = message.mentions[0]
-        Autor = message.author
-        
-        if Numeros <= 15:
-            medidor = discord.Embed(
-                color=vermelho,
-                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vocês não combinam um com o outro.`\n'.format(Autor, Membro, Numeros),
-            )
-            
-        elif Numeros <= 30:
-            medidor = discord.Embed(
-                color=vermelho,
-                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Apenas amigos, porém, leais.`\n'.format(Autor, Membro, Numeros),
-            )
-
-        elif Numeros <= 50:
-            medidor = discord.Embed(
-                color=vermelho,
-                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Da para formar um belo casal.`\n'.format(Autor, Membro, Numeros),
-            )
-            
-        elif Numeros <= 75:
-            medidor = discord.Embed(
-                color=vermelho,
-                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vai dar namoro, Vai dar namoro...` 🎵\n'.format(Autor, Membro, Numeros),
-            )
-            
-        elif Numeros <= 100:
-            medidor = discord.Embed(
-                color=vermelho,
-                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Juntos até a morte!`\n'.format(Autor, Membro, Numeros),
-            )
-
-    ############################################################################################################
-
     if message.content.lower().startswith('=py'):
         msg = message.content.strip('=py')
         await client.send_message(message.channel, message.author.mention+' enviou o segunte código:' + '\n```python\n{}\n```'.format(msg))
@@ -209,6 +170,44 @@ async def on_message(message):
 
         global msg_user
         msg_user = message.author
+
+    if message.content.lower().startswith('=amor'):
+        global medidor
+        
+        Numeros = random.randrange(0, 99)
+        Membro = message.mentions[0]
+        Autor = message.author
+        
+        if Numeros <= 15:
+            medidor = discord.Embed(
+                color=vermelho,
+                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vocês não combinam um com o outro.`\n'.format(Autor, Membro, Numeros),
+            )
+            
+        elif Numeros <= 30:
+            medidor = discord.Embed(
+                color=vermelho,
+                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Apenas amigos, porém, leais.`\n'.format(Autor, Membro, Numeros),
+            )
+
+        elif Numeros <= 50:
+            medidor = discord.Embed(
+                color=vermelho,
+                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Da para formar um belo casal.`\n'.format(Autor, Membro, Numeros),
+            )
+            
+        elif Numeros <= 75:
+            medidor = discord.Embed(
+                color=vermelho,
+                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vai dar namoro, Vai dar namoro...` 🎵\n'.format(Autor, Membro, Numeros),
+            )
+            
+        elif Numeros <= 100:
+            medidor = discord.Embed(
+                color=vermelho,
+                description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Juntos até a morte!`\n'.format(Autor, Membro, Numeros),
+            )
+
 
 @client.event
 async def on_reaction_add(reaction, user):
