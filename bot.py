@@ -51,22 +51,19 @@ async def on_member_remove(member):
 
 @client.event
 async def on_message(message):
-    
-    ############################################################################################################
-  
     if message.content.lower().startswith('=amor'):
         global medidor
-
-        Numeros = random.randrange(0, 99) # Números aleatórios
-        Membro = message.mentions[0]      # Mencinar membro
-        Autor = message.author            # Mencinar você
-
+        
+        Numeros = random.randrange(0, 99)
+        Membro = message.mentions[0]
+        Autor = message.author
+        
         if Numeros <= 15:
             medidor = discord.Embed(
                 color=vermelho,
                 description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vocês não combinam um com o outro.`\n'.format(Autor, Membro, Numeros),
             )
-
+            
         elif Numeros <= 30:
             medidor = discord.Embed(
                 color=vermelho,
@@ -78,19 +75,19 @@ async def on_message(message):
                 color=vermelho,
                 description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Da para formar um belo casal.`\n'.format(Autor, Membro, Numeros),
             )
-
+            
         elif Numeros <= 75:
             medidor = discord.Embed(
                 color=vermelho,
                 description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Vai dar namoro, Vai dar namoro...` 🎵\n'.format(Autor, Membro, Numeros),
             )
-
+            
         elif Numeros <= 100:
             medidor = discord.Embed(
                 color=vermelho,
                 description='💞  **Medidor de amor** 💞\n\n💘 **{}**\n💘 **{}**\n\n» `{}%`\n\nMensagem: `Juntos até a morte!`\n'.format(Autor, Membro, Numeros),
             )
- 
+
     ############################################################################################################
 
     if message.content.lower().startswith('=py'):
