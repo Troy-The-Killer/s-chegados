@@ -8,6 +8,7 @@ import discord
 import random
 
 client = discord.Client()
+vermelho = 0xFF0000
 
 @client.event
 async def on_ready():
